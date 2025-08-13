@@ -14,5 +14,5 @@ selected_gender=col2.selectbox('selected_geander',options=sex_port)
 df_plot=df[df['Embarked']==selected_port]
 df_plot=df_plot[df_plot['Sex']==selected_gender]
 
-plot=px.histogram(data_frame=df_plot,template='seaborn',color='Survived',title='Distributuin of age',facet_col='Survived',x='age')
+plot=px.histogram(data_frame=df_plot,template='seaborn',color='Survived',title='Distributuin of age',facet_col='Survived',x='Age')
 st.plotly_chart(plot)
