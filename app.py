@@ -24,14 +24,17 @@ st.write(df_plot_pie.columns)
 st.write(df_plot_pie.head())
 
 # pie_plot=px.pie(data_frame=df_plot_pie,template='seaborn',title='count of pass survided',values='count of passengers',names='Survived')
-pie_plot = px.pie(
-    data_frame=df_plot_pie,
-    template='seaborn',
-    title='Count of passengers survived',
-    values='Count of passengers',  # <-- match the actual column name
-    names='Survived'
-)
+if not df_plot_pie.empty:
+    pie_plot = px.pie(
+        data_frame=df_plot_pie,
+        template='seaborn',
+        title='Count of passengers survived',
+        values='Count of passengers',
+        names='Survived'
+    )
+    col2.plotly_chart(pie_plot)
+else:
+    st.warning("No data available for this selection")
 
-col2.plotly_chart(pie_plot)
 box_plot=px.box(data_frame=df_plot,y='Fare',color='Survived',x='Survived',template='seaborn')
 st.plotly_chart(box_plot)
