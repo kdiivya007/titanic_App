@@ -33,3 +33,5 @@ pie_plot = px.pie(
 )
 
 col2.plotly_chart(pie_plot)
+box_plot=px.box(data_frame=df_plot,y='Fare',color='Survived',x='Survived',template='seaborn')
+st.plotly_chart(box_plot)
