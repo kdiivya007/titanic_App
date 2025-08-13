@@ -19,5 +19,5 @@ col1.plotly_chart(plot)
 
 df_plot_pie=df_plot.loc[:,['PassengerId','Survived']].groupby(['Survived']).count().reset_index()
 df_plot_pie.rename({'PassengerId':'count of passengers survived'},axis='columns',inplace=True)
-pie_plot=px.pie(data_frame=df_plot_pie,template='seaborn',color='Survived',title='count of pass survided',values='count of passengers',names='Survived')
+pie_plot=px.pie(data_frame=df_plot_pie,template='seaborn',title='count of pass survided',values='count of passengers',names='Survived')
 col2.plotly_chart(pie_plot)
