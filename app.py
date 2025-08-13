@@ -15,4 +15,9 @@ df_plot=df[df['Embarked']==selected_port]
 df_plot=df_plot[df_plot['Sex']==selected_gender]
 
 plot=px.histogram(data_frame=df_plot,template='seaborn',color='Survived',title='Distributuin of age',facet_col='Survived',x='Age')
-st.plotly_chart(plot)
+col1.plotly_chart(plot)
+
+df_plot_pie=df_plot.loc[:,['PassengerID','Survived']].groupby(['Survived']).count().reset_index()
+df_plot_pie.rename({'PassengerID','count of passengers survived'},axis='columns',inplace=True)
+pie_plot=px.pie(data_frame=df_plot_pie,template='seaborn',color='Survived',title='count of pass survided',values='count of passengers',names='Survived')
+col2.plotly_chart(pie_plot)
