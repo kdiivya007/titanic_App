@@ -19,7 +19,7 @@ plot=px.histogram(data_frame=df_plot,template='seaborn',color='Survived',title='
 col1.plotly_chart(plot)
 
 df_plot_pie=df_plot.loc[:,['PassengerId','Survived']].groupby(['Survived']).count().reset_index()
-df_plot_pie.rename({'PassengerId':'count of passengers survived'},axis='columns',inplace=True)
+df_plot_pie.rename({'PassengerId':'Count of passengers'},axis='columns',inplace=True)
 st.write(df_plot_pie.columns)
 st.write(df_plot_pie.head())
 
@@ -28,7 +28,7 @@ pie_plot = px.pie(
     data_frame=df_plot_pie,
     template='seaborn',
     title='Count of passengers survived',
-    values='count of passengers survived',  # <-- match the actual column name
+    values='Count of passengers',  # <-- match the actual column name
     names='Survived'
 )
 
