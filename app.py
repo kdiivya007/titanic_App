@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 st.title('deploy new app')
-df=pd.read_csv('data\titani_data.csv')
+df=pd.read_csv('titani_data.csv')
 df['Embarked']=df['Embarked'].fillna('Unknown')
 embarked_port=list(df['Embarked'].unique())
 sex_port=list(df['sex'].unique())
